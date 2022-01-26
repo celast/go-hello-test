@@ -1,2 +1,2 @@
 # go-hello-test
-go-hello-test1
+go-hello-test2
