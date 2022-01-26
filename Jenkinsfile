@@ -1,6 +1,6 @@
 node {
     env.image = 'go-test-hello'
-    evn.dockerfile = 'Dockerfile'
+    env.dockerfile = 'Dockerfile'
 
     stage('checkout codes') { // for display purposes
         echo 'check codes start ...'
