@@ -6,9 +6,8 @@ COPY src /app/
 WORKDIR /app/src
 
 RUN go env -w GOPROXY=https://goproxy.cn,direct \
-    && go env \
-    && go get \
-    && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o go-hello-test .
+    && CGO_ENABLED=0 GOOS=linux \
+    && go build -a -installsuffix cgo -o go-hello-test .
 
 FROM alpine:latest
 WORKDIR /app/
