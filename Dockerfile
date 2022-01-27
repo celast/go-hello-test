@@ -7,7 +7,7 @@ WORKDIR /app/src
 
 RUN ls
 RUN go env -w GO111MODULE=on
-RUN go env -w GOPROXY=https://goproxy.cn,direct
+RUN go env -w GOPROXY=https://goproxy.cn,https://goproxy.io,direct
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o go-hello-test .
 
 FROM alpine:latest
