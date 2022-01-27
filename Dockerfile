@@ -2,7 +2,7 @@ FROM golang:1.17-alpine as builder
 ARG ARCH="amd64"
 ARG OS="linux"
 
-COPY src /app/
+COPY src /app/src
 WORKDIR /app/src
 
 RUN ls
