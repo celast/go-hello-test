@@ -1,6 +1,7 @@
 node {
-    env.image = 'go-test-hello'
-    env.dockerfile = 'Dockerfile'
+    env.IMAGE = 'go-test-hello'
+    env.DOCKERFILE = 'Dockerfile'
+    env.CONTAINER_NAME = 'go-hello'
 
     stage('checkout codes') { // for display purposes
         echo 'check codes start ...'
@@ -10,14 +11,14 @@ node {
         echo 'building image ...'
         sh '''
         #!/bin/bash
-        docker build -f $dockerfile -t $image .
+        docker build -f ${env.DOCKERFILE} -t ${env.IMAGE} .
         '''
     }
     stage('run image') {
         echo 'running image ...'
         sh '''
         #!/bin/bash
-        docker run --rm --name go-test-hello $image
+        docker run --rm --name ${env.CONTAINER_NAME} ${env.IMAGE}
         '''
     }
     stage('test ssh') {
