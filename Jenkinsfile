@@ -17,11 +17,11 @@ node {
         echo 'running image ...'
         sh '''
         #!/bin/bash
-        docker run --rm -it --name go-test-hello $image
+        docker run --rm --name go-test-hello $image
         '''
     }
     stage('test ssh') {
-        echo 'testing image ...'
+        echo 'testing ssh ...'
         sshagent(['ea3bd256-b9de-4c0f-a0f6-5eb6fd3fd6bc']) {
             sh '''
             #!/bin/bash
